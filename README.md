@@ -32,7 +32,7 @@ To install dependencies, run:
 Set up an MLflow tracking server before running the project. You can either:
 - Use the default local MLflow server at `http://localhost:5000`.
 - Start a new MLflow server using Docker:
-  - docker run -p 5000:5000 --name mlflow-server -v $(pwd)/mlruns:/mlruns mlflow/mlflow:latest
+  - mlflow ui
 
 ### Environment Variables
 
@@ -53,6 +53,7 @@ Run the training script to train the model. Customize parameters like `epochs`, 
 - python main.py --epochs 15 --batch_size 64 --learning_rate 0.0005
 
 - **Training Data**: The script expects the dataset to be located in the `hands/` directory. The dataset should follow the structure:
+
 hands/ ├── class_A/ │ ├── image1.jpg │ ├── image2.jpg ├── class_B/ │ ├── image3.jpg │ ├── image4.jpg
 
 - **Output**: Trained models are saved in the `models/` directory and logged in MLflow.
