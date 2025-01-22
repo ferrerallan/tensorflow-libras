@@ -74,12 +74,6 @@ Example Output:
 The image was classified as: A Probability details: {'A': 0.85, 'B': 0.10, 'C': 0.05}
 
 
-
-### Example API Request
-
-You can also test the REST API with a direct `curl` request:
-- curl -X POST -H "Content-Type: application/json" -d '{"inputs": [[[...]]]}' http://127.0.0.1:5001/invocations
-
 ### Model Parameters
 
 Default parameters can be adjusted via the command line:
