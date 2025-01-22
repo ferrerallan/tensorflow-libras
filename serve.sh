@@ -1,0 +1,1 @@
+MLFLOW_TRACKING_URI=http://localhost:5000 mlflow models serve -m runs:/71bbb4781dd44589a3f31a36f4134c4d/model -p 5001 --env-manager local
