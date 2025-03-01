@@ -1,0 +1,23 @@
+# Criar um arquivo de política de confiança
+echo '{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "sagemaker.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}' > trust-policy.json
+
+# Criar a role
+poetry run aws iam create-role --role-name SageMakerLibrasRole --assume-role-policy-document file://trust-policy.json
+
+# Anexar as políticas necessárias
+poetry run aws iam attach-role-policy --role-name SageMakerLibrasRole --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
+poetry run aws iam attach-role-policy --role-name SageMakerLibrasRole --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+# Obter o ARN da role (anote este valor)
+poetry run aws iam get-role --role-name SageMakerLibrasRole

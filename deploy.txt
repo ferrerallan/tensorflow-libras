@@ -1,0 +1,7 @@
+poetry run python deploy_sagemaker.py \
+  --model_name LibrasRecognitionModel \
+  --app_name libras-recognition-app \
+  --region us-west-2 \
+  --role_arn arn:aws:iam::348770081096:role/SageMakerLibrasRole \
+  --bucket libras-model-artifacts \
+  --instance_type ml.m5.large
